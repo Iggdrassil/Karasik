@@ -6,7 +6,7 @@ LOGGER_STATUS=$(systemctl status syslog-ng | grep Active:| awk {'print $2'})
 if [ "$LOGGER_STATUS" == "active" ];
 then
 	echo Syslog is active
-	vim /etc/syslog-ng/conf.d/IDS.conf
+	vim /etc/syslog-ng/conf.d/*.conf
 	CHECKSUM_SECOND=$(md5sum /etc/syslog-ng/conf.d/*.conf | awk {'print $1'})
 	#echo $CHECKSUM_SECOND
 	if [ "$CHECKSUM_FIRST" == "$CHECKSUM_SECOND" ];
