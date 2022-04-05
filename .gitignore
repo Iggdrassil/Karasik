@@ -6,4 +6,5 @@
 /out
 /*.bat
 /*.iml
+/*.bak
 gradlew
