@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     public WebDriver webDriver;
-    public LoginPage(WebDriver webDriver2){
-        PageFactory.initElements(webDriver2, this); //Конструктор класса PageFactory чтобы работала аннотация FindBy
-        this.webDriver = webDriver2;
+    public LoginPage(WebDriver webDriver){
+        PageFactory.initElements(webDriver, this); //Конструктор класса PageFactory чтобы работала аннотация FindBy
+        this.webDriver = webDriver;
     }
 
     //Локатор поля логина

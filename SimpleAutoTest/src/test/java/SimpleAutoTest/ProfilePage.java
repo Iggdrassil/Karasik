@@ -13,15 +13,16 @@ public class ProfilePage {
     }
 
     //Локатор меню пользователя
-    @FindBy(xpath = "//*[contains(@class, 'menu menu_type_navigation menu_view_classic legouser__menu i-bem')]")
+    @FindBy(xpath = "//*[contains(@class, 'popup2 popup2_view_default popup2_theme_normal popup2_target_anchor popup2_autoclosable_yes popup2_alt-shadow_yes i-bem popup2_js_inited popup2_direction_bottom-right')]")
     private WebElement userMenu;
 
     //Локатор кнопки выхода из аккаунта
-    @FindBy(xpath = "//*[contains(@class, 'menu__item menu__item_type_link count-me legouser__menu-item legouser__menu-item_action_exit legouser__menu-item legouser__menu-item_action_exit')]")
+    @FindBy(xpath = "//*[contains(@aria-label, 'Выйти')]")
     private WebElement exitBtn;
 
     //Метод получения имени пользователя
     public String getUserName(){
+        userMenu.click();
         String userName = userMenu.getText();
         return userName;
     }
