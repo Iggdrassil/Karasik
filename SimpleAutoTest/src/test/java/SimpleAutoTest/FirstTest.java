@@ -4,6 +4,7 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -14,10 +15,9 @@ public class FirstTest {
     public static LoginPage loginPage;
     public static ProfilePage profilePage;
     public static WebDriver webDriver;
-
     @BeforeClass //Аннотация говорит о том, что этот участок кода является подготовкой к тесту
     public static void beforeTest() {
-        System.setProperty("webdriver.gecko.driver","D:/Intellij IDEA Projects/SimpleAutoTest/geckodriver.exe"); //зависимость, определяющая путь к webdriver.gecko.driver
+        System.setProperty("webdriver.gecko.driver","C:/Users/Navar/Desktop/Karasik/geckodriver.exe"); //зависимость, определяющая путь к webdriver.gecko.driver
         webDriver = new FirefoxDriver();  //Создание объекта драйвера
         loginPage = new LoginPage(webDriver);
         profilePage = new ProfilePage(webDriver);
@@ -39,8 +39,11 @@ public class FirstTest {
     }
     @AfterClass //Завершение теста
     public static void End (){
-        profilePage.prssMenuBtnn(); //Открытие меню пользователя
-        profilePage.logout(); //Нажатие кнопки выхода
+        //profilePage.prssMenuBtnn(); //Открытие меню пользователя
+        webDriver.get("https://passport.yandex.ru/profile");
+        webDriver.findElement(By.xpath("//div[contains(@class,'user-pic user-pic_has-plus_')]//img")).click();
+        webDriver.findElement(By.xpath("//span[text()='Выйти']")).click();
+        //profilePage.logout(); //Нажатие кнопки выхода
         webDriver.quit(); //Закрытие окна браузера
     }
 }

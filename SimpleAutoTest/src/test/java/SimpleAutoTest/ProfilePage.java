@@ -13,11 +13,11 @@ public class ProfilePage {
     }
 
     //Локатор меню пользователя
-    @FindBy(xpath = "//*[contains(@class, 'popup2 popup2_view_default popup2_theme_normal popup2_target_anchor popup2_autoclosable_yes popup2_alt-shadow_yes i-bem popup2_js_inited popup2_direction_bottom-right')]")
+    @FindBy(xpath = "//*[contains(@class, 'home-link usermenu-link__control home-link_black_yes')]")
     private WebElement userMenu;
 
     //Локатор кнопки выхода из аккаунта
-    @FindBy(xpath = "//*[contains(@aria-label, 'Выйти')]")
+    @FindBy(xpath = "//div[contains(@class, 'PageHeader-user')]")
     private WebElement exitBtn;
 
     //Метод получения имени пользователя
@@ -27,13 +27,4 @@ public class ProfilePage {
         return userName;
     }
 
-    //Метод нажатия кнопки в меню пользователя
-    public void prssMenuBtnn(){
-        userMenu.click();
-    }
-
-    //Метод выхода
-    public void logout(){
-        exitBtn.click();
-    }
 }
