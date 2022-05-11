@@ -1,6 +1,4 @@
-
-
-public class WebElements {
+public class SettingsURLsXPathsNamesOrIDs {
     private String driverName;
     private String driverPath;
     private String url;
