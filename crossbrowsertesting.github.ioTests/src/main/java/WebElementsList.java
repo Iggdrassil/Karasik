@@ -3,6 +3,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class WebElementsList {
+    /**
+     * В этом классе лежат все вебэлементы, которые используются в тестах.
+     * Так как вебэлементов достаточно много, было решено выделить для этого отжельный класс.
+     * В классе сначала объявлется переменная класса WebElement %названиеЭлемента%
+     * Потом для этой переменной генерируются getтеры и setтеры.
+     * Getтер остается без изменений, а в конструктор setтера дописываются две переменные: driver класса Webdriver и переменная класса String,
+     * которая может содержать xpath элемента, или его id, или его name.
+     * Потом в setтере происходит поиск элемента с помощью драйвера и указанного локатора.
+     */
     private  WebElement showMessageButton;
     private  WebElement entryField;
     private  WebElement checkBox;
@@ -12,19 +21,22 @@ public class WebElementsList {
     private  WebElement submitButton;
     private  WebElement draggable;
     private  WebElement droppable;
+    private  WebElement nameField;
+    private  WebElement passField;
+    private  WebElement loginButton;
     public WebElement getShowMessageButton() {
         return showMessageButton;
     }
 
     public void setShowMessageButton(WebDriver driver, String webElementXPathNameOrID) {
-        this.showMessageButton = driver.findElement(By.xpath(webElementXPathNameOrID));
+        this.showMessageButton = driver.findElement(By.xpath(webElementXPathNameOrID)); //Поиск вебэлемента по Xpath
     }
     public WebElement getDraggable() {
         return draggable;
     }
 
     public void setDraggable(WebDriver driver, String webElementXPathNameOrID) {
-        this.draggable = driver.findElement(By.id(webElementXPathNameOrID));
+        this.draggable = driver.findElement(By.id(webElementXPathNameOrID)); //Поиск вебэлемента по id
     }
 
     public WebElement getDroppable() {
@@ -32,7 +44,7 @@ public class WebElementsList {
     }
 
     public void setDroppable(WebDriver driver, String webElementXPathNameOrID) {
-        this.droppable = driver.findElement(By.id(webElementXPathNameOrID));
+        this.droppable = driver.findElement(By.id(webElementXPathNameOrID)); //Поиск вебэлемента по id
     }
 
     public WebElement getEntryField() {
@@ -40,7 +52,7 @@ public class WebElementsList {
     }
 
     public void setEntryField(WebDriver driver, String webElementXPathNameOrID) {
-        this.entryField = driver.findElement(By.xpath(webElementXPathNameOrID));
+        this.entryField = driver.findElement(By.xpath(webElementXPathNameOrID));  //Поиск вебэлемента по Xpath
     }
 
     public WebElement getCheckBox() {
@@ -48,7 +60,7 @@ public class WebElementsList {
     }
 
     public void setCheckBox(WebDriver driver, String webElementXPathNameOrID) {
-        this.checkBox = driver.findElement(By.xpath(webElementXPathNameOrID));
+        this.checkBox = driver.findElement(By.xpath(webElementXPathNameOrID));  //Поиск вебэлемента по Xpath
     }
 
     public WebElement getDropdownList() {
@@ -56,7 +68,7 @@ public class WebElementsList {
     }
 
     public void setDropdownList(WebDriver driver, String webElementXPathNameOrID) {
-        this.dropdownList = driver.findElement(By.xpath(webElementXPathNameOrID));
+        this.dropdownList = driver.findElement(By.xpath(webElementXPathNameOrID));  //Поиск вебэлемента по Xpath
     }
 
     public WebElement getRadioButton() {
@@ -64,7 +76,7 @@ public class WebElementsList {
     }
 
     public void setRadioButton(WebDriver driver, String webElementXPathNameOrID) {
-        this.radioButton = driver.findElement(By.id(webElementXPathNameOrID));
+        this.radioButton = driver.findElement(By.id(webElementXPathNameOrID));  //Поиск вебэлемента по id
     }
 
     public WebElement getTextArea() {
@@ -72,7 +84,7 @@ public class WebElementsList {
     }
 
     public void setTextArea(WebDriver driver, String webElementXPathNameOrID) {
-        this.textArea = driver.findElement(By.name(webElementXPathNameOrID));
+        this.textArea = driver.findElement(By.name(webElementXPathNameOrID));  //Поиск вебэлемента по name
     }
 
     public WebElement getSubmitButton() {
@@ -80,6 +92,31 @@ public class WebElementsList {
     }
 
     public void setSubmitButton(WebDriver driver, String webElementXPathNameOrID) {
-        this.submitButton = driver.findElement(By.id(webElementXPathNameOrID));
+        this.submitButton = driver.findElement(By.id(webElementXPathNameOrID));  //Поиск вебэлемента по id
     }
+
+    public WebElement getNameField() {
+        return nameField;
+    }
+
+    public void setNameField(WebDriver driver, String webElementXPathNameOrID) {
+        this.nameField = driver.findElement(By.id(webElementXPathNameOrID));  //Поиск вебэлемента по id
+    }
+
+    public WebElement getPassField() {
+        return passField;
+    }
+
+    public void setPassField(WebDriver driver, String webElementXPathNameOrID) {
+        this.passField = driver.findElement(By.id(webElementXPathNameOrID));  //Поиск вебэлемента по id
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
+
+    public void setLoginButton(WebDriver driver, String webElementXPathNameOrID) {
+        this.loginButton = driver.findElement(By.xpath(webElementXPathNameOrID));  //Поиск вебэлемента по Xpath
+    }
+
 }
