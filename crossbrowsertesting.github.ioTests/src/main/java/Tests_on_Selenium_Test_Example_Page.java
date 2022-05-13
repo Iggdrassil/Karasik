@@ -1,16 +1,8 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
-
 
 public class Tests_on_Selenium_Test_Example_Page {
     /*
@@ -35,57 +27,22 @@ public class Tests_on_Selenium_Test_Example_Page {
         chromeDriver = new ChromeDriver(); //Объявление инстанса драйвера
     }
     @Test
-    public void ClickButtonsAndEnteredFieldsTest() throws InterruptedException{
-        SettingsURLsXPathsNamesOrIDs.setUrl("https://crossbrowsertesting.github.io/selenium_example_page.html"); //Задание URL
-        chromeDriver.get(SettingsURLsXPathsNamesOrIDs.getUrl()); //Получение URL
-        webElements.setShowMessageButton(chromeDriver, SettingsURLsXPathsNamesOrIDs.getShowMessageButtonXPath()); //Задание вебэлемента. В метод set___ передается драйвер и локатор элеманта
-        webElements.setEntryField(chromeDriver, SettingsURLsXPathsNamesOrIDs.getEntryFieldXPath());
-        webElements.setCheckBox(chromeDriver, SettingsURLsXPathsNamesOrIDs.getCheckBoxXPath());
-        webElements.setDropdownList(chromeDriver, SettingsURLsXPathsNamesOrIDs.getDropdownListXPath());
-        webElements.setRadioButton(chromeDriver, SettingsURLsXPathsNamesOrIDs.getRadioButtonID());
-        webElements.setTextArea(chromeDriver, SettingsURLsXPathsNamesOrIDs.getTextAreaName());
-        webElements.setSubmitButton(chromeDriver, SettingsURLsXPathsNamesOrIDs.getSubmitButtonID());
-        Thread.sleep(2000);
-        webElements.getShowMessageButton().click();
-        Thread.sleep(2000);
-        webElements.getEntryField().sendKeys("SomeTestText");
-        webElements.getCheckBox().click();
-        webElements.getDropdownList().click();
-        webElements.getDropdownList().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER);
-        webElements.getRadioButton().click();
-        webElements.getTextArea().sendKeys("Entered Some text for test");
-        webElements.getEntryField().clear();
-        webElements.getEntryField().sendKeys("New Text");
-        Thread.sleep(2000);
-        webElements.getSubmitButton().click();
+    public void ClickButtonsAndEnteredFields() throws InterruptedException{
+        ClickButtonsAndEnteredFieldsTest clickButtonsAndEnteredFieldsTest = new ClickButtonsAndEnteredFieldsTest();
+        clickButtonsAndEnteredFieldsTest.startClickButtonsAndEnteredFieldsTest("https://crossbrowsertesting.github.io/selenium_example_page.html",
+                chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
     }
     @Test
-    public void DragAndDropTest() throws InterruptedException{
-        SettingsURLsXPathsNamesOrIDs.setUrl("https://crossbrowsertesting.github.io/drag-and-drop.html");
-        chromeDriver.get(SettingsURLsXPathsNamesOrIDs.getUrl());
-        Thread.sleep(2000);
-        webElements.setDraggable(chromeDriver, SettingsURLsXPathsNamesOrIDs.getDraggableID());
-        webElements.setDroppable(chromeDriver, SettingsURLsXPathsNamesOrIDs.getDroppableID());
-        Actions dragAndDropAction = new Actions(chromeDriver);
-        dragAndDropAction.pause(5000).dragAndDrop(webElements.getDraggable(),webElements.getDroppable()).pause(5000).build().perform();
-
+    public void DragAndDrop() throws InterruptedException{
+        DragAndDropTest dragAndDropTest = new DragAndDropTest();
+        dragAndDropTest.startDragAndDropTest("https://crossbrowsertesting.github.io/drag-and-drop.html",
+                chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
         }
      @Test
-     public void LoginFormTest() throws InterruptedException{
-         SettingsURLsXPathsNamesOrIDs.setUrl("https://crossbrowsertesting.github.io/login-form.html");
-         chromeDriver.get(SettingsURLsXPathsNamesOrIDs.getUrl());
-         Thread.sleep(2000);
-         webElements.setNameField(chromeDriver,SettingsURLsXPathsNamesOrIDs.getUsernameFieldID());
-         webElements.setPassField(chromeDriver,SettingsURLsXPathsNamesOrIDs.getPassFieldID());
-         webElements.setLoginButton(chromeDriver, SettingsURLsXPathsNamesOrIDs.getLoginButtonText());
-         webElements.getNameField().sendKeys("tester@crossbrowsertesting.com");
-         webElements.getPassField().sendKeys("test123");
-         webElements.getLoginButton().click();
-         WebDriverWait wait = new WebDriverWait(chromeDriver, Duration.ofSeconds(50));
-         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()=\"You are now logged in!\"]"))); //Ожидание появления текста You are now  logged in!
-         Thread.sleep(2000);
-
-
+     public void LoginForm() throws InterruptedException{
+        LoginFormTest loginFormTest = new LoginFormTest();
+        loginFormTest.startLoginFormTest("https://crossbrowsertesting.github.io/login-form.html",
+                chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
      }
      @AfterAll
     public static void AfterClass() throws InterruptedException{
