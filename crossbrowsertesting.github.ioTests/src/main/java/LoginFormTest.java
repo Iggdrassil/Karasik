@@ -6,6 +6,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginFormTest {
+    /**
+     *
+     * @param URL = в этот параметр передается URL странцы теста
+     * @param driver = сюда передается инстанс драйвера класса WebDriver.
+     * @param SettingsURLsXPathsNamesOrIDs = сюда передается переменная класса SettingsURLsXPathsNamesOrIDs
+     * @param webElements = сюда передается переменная класса WebElementsList
+     * @throws InterruptedException
+     * Это класс теста логина в форму. В поле Логина вводится логин, в поле пароль вводится пароль, потом нажимается
+     * кнопка, и ожидается появление на странице текста "You are now logged in!" для успешного прохождения теста.
+     */
     public void startLoginFormTest(String URL, WebDriver driver,
                                      SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs,
                                      WebElementsList webElements) throws InterruptedException {

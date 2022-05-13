@@ -2,6 +2,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class ClickButtonsAndEnteredFieldsTest {
+    /**
+     * @param URL = в этот параметр передается URL странцы теста
+     * @param driver  = сюда передается инстанс драйвера класса WebDriver.
+     * @param SettingsURLsXPathsNamesOrIDs  = сюда передается переменная класса SettingsURLsXPathsNamesOrIDs
+     * @param webElements  = сюда передается переменная класса WebElementsList
+     * @throws InterruptedException
+     * В этом классе проходит тест нажатия разных кнопок, чекбоксов и радиокнопок, а также заполнение и очищение полей.
+     */
     public  void startClickButtonsAndEnteredFieldsTest(String URL, WebDriver driver,
                                                              SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs,
                                                              WebElementsList webElements) throws InterruptedException{
