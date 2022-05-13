@@ -22,73 +22,68 @@ public class SettingsURLsXPathsNamesOrIDs {
     private final String usernameFieldID = "username";
     private final String passFieldID = "password";
     private final String loginButtonText = "//button[text()=\"Login\"]";
+    private final String chooseFileButtonID = "file-upload";
+    private final String UploadButton = "//input[@value=\"Upload\"]";
 
     public String getDriverName() {
         return driverName;
     }
-
     public void setDriverName(String driverName) {
         this.driverName = driverName;
     }
-
     public String getDriverPath() {
         return driverPath;
     }
-
     public void setDriverPath(String dirverPath) {
         this.driverPath = dirverPath;
     }
     public String getUrl() {
         return url;
     }
-
     public void setUrl(String url) {
         this.url = url;
     }
     public String getShowMessageButtonXPath() {
         return showMessageButtonXPath;
     }
-
     public String getEntryFieldXPath() {
         return entryFieldXPath;
     }
-
     public String getCheckBoxXPath() {
         return checkBoxXPath;
     }
-
     public String getDropdownListXPath() {
         return dropdownListXPath;
     }
-
     public String getRadioButtonID() {
         return radioButtonID;
     }
-
     public String getTextAreaName() {
         return textAreaName;
     }
-
     public String getSubmitButtonID() {
         return submitButtonID;
     }
     public String getDraggableID() {
         return draggableID;
     }
-
     public String getDroppableID() {
         return droppableID;
     }
     public String getUsernameFieldID() {
         return usernameFieldID;
     }
-
     public String getPassFieldID() {
         return passFieldID;
     }
-
     public String getLoginButtonText() {
         return loginButtonText;
+    }
+    public String getChooseFileButtonID() {
+        return chooseFileButtonID;
+    }
+    public String getUploadButton() {
+        return UploadButton;
     }
 
 }

@@ -16,7 +16,7 @@ public class LoginFormTest {
      * Это класс теста логина в форму. В поле Логина вводится логин, в поле пароль вводится пароль, потом нажимается
      * кнопка, и ожидается появление на странице текста "You are now logged in!" для успешного прохождения теста.
      */
-    public void startLoginFormTest(String URL, WebDriver driver,
+    public void start(String URL, WebDriver driver,
                                      SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs,
                                      WebElementsList webElements) throws InterruptedException {
         SettingsURLsXPathsNamesOrIDs.setUrl(URL);

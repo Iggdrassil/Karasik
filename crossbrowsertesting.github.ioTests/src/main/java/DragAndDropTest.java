@@ -11,7 +11,7 @@ public class DragAndDropTest {
      * @throws InterruptedException
      * Это класс теста функционала DragNDrop. Один элемент перетягивается на другой с помощью Actions dragAndDropAction.
      */
-    public void startDragAndDropTest(String URL, WebDriver driver,
+    public void start(String URL, WebDriver driver,
                                                        SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs,
                                                        WebElementsList webElements) throws InterruptedException{
         SettingsURLsXPathsNamesOrIDs.setUrl(URL);

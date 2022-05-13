@@ -10,7 +10,7 @@ public class ClickButtonsAndEnteredFieldsTest {
      * @throws InterruptedException
      * В этом классе проходит тест нажатия разных кнопок, чекбоксов и радиокнопок, а также заполнение и очищение полей.
      */
-    public  void startClickButtonsAndEnteredFieldsTest(String URL, WebDriver driver,
+    public  void start(String URL, WebDriver driver,
                                                              SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs,
                                                              WebElementsList webElements) throws InterruptedException{
         SettingsURLsXPathsNamesOrIDs.setUrl(URL); //Задание URL

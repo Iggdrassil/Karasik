@@ -24,6 +24,8 @@ public class WebElementsList {
     private  WebElement nameField;
     private  WebElement passField;
     private  WebElement loginButton;
+    private  WebElement chooseFileButton;
+    private  WebElement uploadButton;
     public WebElement getShowMessageButton() {
         return showMessageButton;
     }
@@ -119,4 +121,19 @@ public class WebElementsList {
         this.loginButton = driver.findElement(By.xpath(webElementXPathNameOrID));  //Поиск вебэлемента по Xpath
     }
 
+
+    public WebElement getChooseFileButton() {
+        return chooseFileButton;
+    }
+
+    public void setChooseFileButton(WebDriver driver, String webElementXPathNameOrID) {
+        this.chooseFileButton = driver.findElement(By.id(webElementXPathNameOrID));
+    }
+    public WebElement getUploadButton() {
+        return uploadButton;
+    }
+
+    public void setUploadButton(WebDriver driver, String webElementXPathNameOrID) {
+        this.uploadButton = driver.findElement(By.xpath(webElementXPathNameOrID));
+    }
 }

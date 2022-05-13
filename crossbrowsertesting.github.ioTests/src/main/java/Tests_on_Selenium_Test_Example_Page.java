@@ -29,20 +29,26 @@ public class Tests_on_Selenium_Test_Example_Page {
     @Test
     public void ClickButtonsAndEnteredFields() throws InterruptedException{
         ClickButtonsAndEnteredFieldsTest clickButtonsAndEnteredFieldsTest = new ClickButtonsAndEnteredFieldsTest();
-        clickButtonsAndEnteredFieldsTest.startClickButtonsAndEnteredFieldsTest("https://crossbrowsertesting.github.io/selenium_example_page.html",
+        clickButtonsAndEnteredFieldsTest.start("https://crossbrowsertesting.github.io/selenium_example_page.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
     }
     @Test
     public void DragAndDrop() throws InterruptedException{
         DragAndDropTest dragAndDropTest = new DragAndDropTest();
-        dragAndDropTest.startDragAndDropTest("https://crossbrowsertesting.github.io/drag-and-drop.html",
+        dragAndDropTest.start("https://crossbrowsertesting.github.io/drag-and-drop.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
         }
      @Test
      public void LoginForm() throws InterruptedException{
         LoginFormTest loginFormTest = new LoginFormTest();
-        loginFormTest.startLoginFormTest("https://crossbrowsertesting.github.io/login-form.html",
+        loginFormTest.start("https://crossbrowsertesting.github.io/login-form.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+     }
+     @Test
+     public void FileUpload() throws InterruptedException{
+        FileUploadTest fileUploadTest = new FileUploadTest();
+        fileUploadTest.start("https://the-internet.herokuapp.com/upload",chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+
      }
      @AfterAll
     public static void AfterClass() throws InterruptedException{
