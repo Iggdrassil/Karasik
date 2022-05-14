@@ -1,9 +1,19 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.jupiter.api.Assertions.fail;
 
+
+//TODO Добавить логгирование в файл(уровня INFO, ERROR)
+//TODO Добавить обработку исключений, если не найден веб-элемент на странице
+//TODO Написать тесты для работы с всплывающими окнами, выгрузки файла, с переключением страниц
+//TODO Написать Assert проверки
+//TODO Поработать с JUnit и TestNG
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Tests_on_Selenium_Test_Example_Page {
     /*
     Здесь создаются перменные, которые понадобятся в тестах
@@ -11,6 +21,7 @@ public class Tests_on_Selenium_Test_Example_Page {
     public static WebDriver chromeDriver; //Переменная драйвера
     public static SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs; //Переменная для доступа к xpath, id и тд вебэлементов
     public static WebElementsList webElements; //Переменная для доступа к  вэбэлементам, используемых в тестах
+    public final static Logger logger = LogManager.getLogger();
 
     @BeforeAll
     /*
@@ -27,32 +38,42 @@ public class Tests_on_Selenium_Test_Example_Page {
         chromeDriver = new ChromeDriver(); //Объявление инстанса драйвера
     }
     @Test
+    @Order(1)
     public void ClickButtonsAndEnteredFields() throws InterruptedException{
         ClickButtonsAndEnteredFieldsTest clickButtonsAndEnteredFieldsTest = new ClickButtonsAndEnteredFieldsTest();
         clickButtonsAndEnteredFieldsTest.start("https://crossbrowsertesting.github.io/selenium_example_page.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
     }
     @Test
+    @Order(2)
     public void DragAndDrop() throws InterruptedException{
-        DragAndDropTest dragAndDropTest = new DragAndDropTest();
-        dragAndDropTest.start("https://crossbrowsertesting.github.io/drag-and-drop.html",
-                chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        logger.info("Logging works!");
+        try {
+            DragAndDropTest dragAndDropTest = new DragAndDropTest();
+            dragAndDropTest.start("https://crossbrowsertesting.github.io/drag-and-drop.html",
+                    chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        } catch (NoSuchElementException e){
+            logger.error("WebElement not found! \n"+ e.getMessage());
+            logger.info("Test "+DragAndDropTest.class+ " Failed!");
+            fail();
         }
+    }
      @Test
+     @Order(3)
      public void LoginForm() throws InterruptedException{
         LoginFormTest loginFormTest = new LoginFormTest();
         loginFormTest.start("https://crossbrowsertesting.github.io/login-form.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
      }
      @Test
+     @Order(4)
      public void FileUpload() throws InterruptedException{
         FileUploadTest fileUploadTest = new FileUploadTest();
         fileUploadTest.start("https://the-internet.herokuapp.com/upload",chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
-
      }
      @AfterAll
     public static void AfterClass() throws InterruptedException{
         Thread.sleep(10000);
         chromeDriver.quit();
-     }
     }
+}
