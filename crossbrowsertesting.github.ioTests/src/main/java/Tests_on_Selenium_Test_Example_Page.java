@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -130,6 +132,12 @@ public class Tests_on_Selenium_Test_Example_Page {
         }finally {
             logger.info("FileUpload Test End");
         }
+     }
+     @Test
+     @Order(6)
+     public void StatusCodes()  throws InterruptedException, IOException {
+        StatusCodesTest statusCodesTest = new StatusCodesTest();
+        statusCodesTest.start("https://the-internet.herokuapp.com/status_codes", chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
      }
 
      @AfterAll

@@ -27,7 +27,10 @@ public class SettingsURLsXPathsNamesOrIDs {
     private final String alertButtonXpath = "//button[text()='Click for JS Alert']";
     private final String confirmButtonXpath = "//button[text()='Click for JS Confirm']";
     private final String promptButtonXpath = "//button[text()='Click for JS Prompt']";
-
+    private final String code200Xpath = "//a[@href=\"status_codes/200\"]";
+    private final String code301Xpath = "//a[@href=\"status_codes/301\"]";
+    private final String code404Xpath = "//a[@href=\"status_codes/404\"]";
+    private final String code500Xpath = "//a[@href=\"status_codes/500\"]";
 
     public String getDriverName() {
         return driverName;
@@ -97,5 +100,21 @@ public class SettingsURLsXPathsNamesOrIDs {
     }
     public String getPromptButtonXpath() {
         return promptButtonXpath;
+    }
+
+    public String getCode200Xpath() {
+        return code200Xpath;
+    }
+
+    public String getCode301Xpath() {
+        return code301Xpath;
+    }
+
+    public String getCode404Xpath() {
+        return code404Xpath;
+    }
+
+    public String getCode500Xpath() {
+        return code500Xpath;
     }
 }

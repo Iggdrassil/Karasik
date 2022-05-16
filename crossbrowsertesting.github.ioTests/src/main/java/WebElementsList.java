@@ -29,6 +29,10 @@ public class WebElementsList {
     private WebElement alertButton;
     private WebElement confirmButton;
     private WebElement promptButton;
+    private WebElement code200;
+    private WebElement code301;
+    private WebElement code404;
+    private WebElement code500;
 
     public WebElement getShowMessageButton() {
         return showMessageButton;
@@ -114,29 +118,57 @@ public class WebElementsList {
     public void setUploadButton(WebDriver driver, String webElementXPathNameOrID) {
         this.uploadButton = driver.findElement(By.xpath(webElementXPathNameOrID));
     }
-
     public WebElement getAlertButton() {
         return alertButton;
     }
-
     public void setAlertButton(WebDriver driver, String webElementXPathNameOrID) {
         this.alertButton = driver.findElement(By.xpath(webElementXPathNameOrID));
     }
-
     public WebElement getConfirmButton() {
         return confirmButton;
     }
-
     public void setConfirmButton(WebDriver driver, String webElementXPathNameOrID) {
         this.confirmButton = driver.findElement(By.xpath(webElementXPathNameOrID));
     }
-
     public WebElement getPromptButton() {
         return promptButton;
     }
-
     public void setPromptButton(WebDriver driver, String webElementXPathNameOrID) {
         this.promptButton = driver.findElement(By.xpath(webElementXPathNameOrID));
     }
+
+    public WebElement getCode200() {
+        return code200;
+    }
+
+    public void setCode200(WebDriver driver, String webElementXPathNameOrID) {
+        this.code200 = driver.findElement(By.xpath(webElementXPathNameOrID));
+    }
+
+    public WebElement getCode301() {
+        return code301;
+    }
+
+    public void setCode301(WebDriver driver, String webElementXPathNameOrID) {
+        this.code301 = driver.findElement(By.xpath(webElementXPathNameOrID));
+    }
+
+    public WebElement getCode404() {
+        return code404;
+    }
+
+    public void setCode404(WebDriver driver, String webElementXPathNameOrID) {
+        this.code404 = driver.findElement(By.xpath(webElementXPathNameOrID));
+    }
+
+    public WebElement getCode500() {
+        return code500;
+    }
+
+    public void setCode500(WebDriver driver, String webElementXPathNameOrID) {
+        this.code500 = driver.findElement(By.xpath(webElementXPathNameOrID));
+    }
+
+
 
 }
