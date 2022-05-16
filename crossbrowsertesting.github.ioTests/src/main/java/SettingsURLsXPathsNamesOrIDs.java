@@ -24,6 +24,10 @@ public class SettingsURLsXPathsNamesOrIDs {
     private final String loginButtonText = "//button[text()=\"Login\"]";
     private final String chooseFileButtonID = "file-upload";
     private final String UploadButton = "//input[@value=\"Upload\"]";
+    private final String alertButtonXpath = "//button[text()='Click for JS Alert']";
+    private final String confirmButtonXpath = "//button[text()='Click for JS Confirm']";
+    private final String promptButtonXpath = "//button[text()='Click for JS Prompt']";
+
 
     public String getDriverName() {
         return driverName;
@@ -85,5 +89,13 @@ public class SettingsURLsXPathsNamesOrIDs {
     public String getUploadButton() {
         return UploadButton;
     }
-
+    public String getAlertButtonXpath() {
+        return alertButtonXpath;
+    }
+    public String getConfirmButtonXpath() {
+        return confirmButtonXpath;
+    }
+    public String getPromptButtonXpath() {
+        return promptButtonXpath;
+    }
 }

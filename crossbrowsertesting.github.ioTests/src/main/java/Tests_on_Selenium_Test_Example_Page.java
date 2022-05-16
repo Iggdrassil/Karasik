@@ -1,9 +1,12 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -16,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Tests_on_Selenium_Test_Example_Page {
     /*
-    Здесь создаются перменные, которые понадобятся в тестах
+    Здесь создаются перeменные, которые понадобятся в тестах
      */
     public static WebDriver chromeDriver; //Переменная драйвера
     public static SettingsURLsXPathsNamesOrIDs SettingsURLsXPathsNamesOrIDs; //Переменная для доступа к xpath, id и тд вебэлементов
@@ -34,20 +37,36 @@ public class Tests_on_Selenium_Test_Example_Page {
         webElements = new WebElementsList();
         SettingsURLsXPathsNamesOrIDs.setDriverName("webdriver.chrome.driver"); //Название файла драйвера
         SettingsURLsXPathsNamesOrIDs.setDriverPath("C:/Users/Navar/Desktop/Karasik/chromedriver.exe"); //Путь к файлу драйвера
-        System.setProperty(SettingsURLsXPathsNamesOrIDs.getDriverName(), SettingsURLsXPathsNamesOrIDs.getDriverPath()); //Задание системных настроек
-        chromeDriver = new ChromeDriver(); //Объявление инстанса драйвера
+        try {
+            System.setProperty(SettingsURLsXPathsNamesOrIDs.getDriverName(), SettingsURLsXPathsNamesOrIDs.getDriverPath()); //Задание системных настроек
+            chromeDriver = new ChromeDriver(); //Объявление инстанса драйвера
+        } catch (WebDriverException e){
+            logger.error("WebDriver error", e.getSystemInformation(), e.getStackTrace(), e.getCause());
+            fail(e.getCause());
+        }
     }
+
     @Test
     @Order(1)
     public void ClickButtonsAndEnteredFields() throws InterruptedException{
-        ClickButtonsAndEnteredFieldsTest clickButtonsAndEnteredFieldsTest = new ClickButtonsAndEnteredFieldsTest();
-        clickButtonsAndEnteredFieldsTest.start("https://crossbrowsertesting.github.io/selenium_example_page.html",
-                chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        logger.info("ClickButtonsAndEnteredFields Test Start");
+        try {
+            ClickButtonsAndEnteredFieldsTest clickButtonsAndEnteredFieldsTest = new ClickButtonsAndEnteredFieldsTest();
+            clickButtonsAndEnteredFieldsTest.start("https://crossbrowsertesting.github.io/selenium_example_page.html",
+                    chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        } catch (NoSuchElementException e){
+            logger.error("WebElement not found! \n"+ e.getMessage());
+            logger.info("Test "+ClickButtonsAndEnteredFieldsTest.class+ " Failed!");
+            fail();
+        } finally {
+            logger.info("ClickButtonsAndEnteredFields Test End");
+        }
     }
+
     @Test
     @Order(2)
     public void DragAndDrop() throws InterruptedException{
-        logger.info("Logging works!");
+        logger.info("DragAndDrop Test Start");
         try {
             DragAndDropTest dragAndDropTest = new DragAndDropTest();
             dragAndDropTest.start("https://crossbrowsertesting.github.io/drag-and-drop.html",
@@ -56,24 +75,67 @@ public class Tests_on_Selenium_Test_Example_Page {
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+DragAndDropTest.class+ " Failed!");
             fail();
+        }finally {
+            logger.info("DragAndDrop Test End");
         }
     }
+
      @Test
      @Order(3)
      public void LoginForm() throws InterruptedException{
-        LoginFormTest loginFormTest = new LoginFormTest();
-        loginFormTest.start("https://crossbrowsertesting.github.io/login-form.html",
+        logger.info("LoginForm Test Start");
+        try {
+            LoginFormTest loginFormTest = new LoginFormTest();
+            loginFormTest.start("https://crossbrowsertesting.github.io/login-form.html",
                 chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        }catch (NoSuchElementException e){
+            logger.error("WebElement not found! \n"+ e.getMessage());
+            logger.info("Test "+LoginFormTest.class+ " Failed!");
+            fail();
+        } finally {
+            logger.info("LoginForm Test End");
+        }
      }
+
      @Test
      @Order(4)
      public void FileUpload() throws InterruptedException{
-        FileUploadTest fileUploadTest = new FileUploadTest();
-        fileUploadTest.start("https://the-internet.herokuapp.com/upload",chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        logger.info("FileUpload Test Start");
+        try {
+            FileUploadTest fileUploadTest = new FileUploadTest();
+            fileUploadTest.start("https://the-internet.herokuapp.com/upload",chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        } catch (NoSuchElementException e){
+            logger.error("WebElement not found! \n"+ e.getMessage());
+            logger.info("Test "+FileUploadTest.class+ " Failed!");
+            fail();
+        } finally {
+            logger.info("FileUpload Test End");
+        }
      }
+     @Test
+     @Order(5)
+     public void PopUpWindows() throws InterruptedException{
+        logger.info("PopUpWindows Test Start");
+        try {
+            PopUpWindowsTest popUpWindowsTest = new PopUpWindowsTest();
+            popUpWindowsTest.start("https://the-internet.herokuapp.com/javascript_alerts", chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+        } catch (NoSuchElementException e){
+            logger.error("WebElement not found! \n"+ e.getMessage());
+            logger.info("Test "+PopUpWindowsTest.class+ " Failed!");
+            fail();
+        } catch (TimeoutException e){
+            logger.error("WebElement Timeout \n"+ e.getMessage());
+            logger.info("Test "+PopUpWindowsTest.class+ " Failed!");
+            fail();
+        }finally {
+            logger.info("FileUpload Test End");
+        }
+     }
+
      @AfterAll
     public static void AfterClass() throws InterruptedException{
         Thread.sleep(10000);
         chromeDriver.quit();
+        logger.info("All Tests Ends");
     }
 }
