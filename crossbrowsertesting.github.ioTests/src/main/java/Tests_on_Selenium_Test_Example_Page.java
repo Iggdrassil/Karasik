@@ -140,6 +140,13 @@ public class Tests_on_Selenium_Test_Example_Page {
         statusCodesTest.start("https://the-internet.herokuapp.com/status_codes", chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
      }
 
+     @Test
+     @Order(7)
+     public void SimpleFileDownload() throws InterruptedException,  IOException{
+         SimpleFileDownloadTest SimpleFileDownloadTest = new SimpleFileDownloadTest();
+         SimpleFileDownloadTest.start("https://the-internet.herokuapp.com/download", chromeDriver, SettingsURLsXPathsNamesOrIDs, webElements);
+     }
+
      @AfterAll
     public static void AfterClass() throws InterruptedException{
         Thread.sleep(10000);
