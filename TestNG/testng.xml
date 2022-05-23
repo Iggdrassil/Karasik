@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite">
+    <test name="ClickButtonsAndEnteredFieldsTest">
+        <classes>
+            <class name="Tests_on_Selenium_Test_Example_Page">
+
+            </class>
+            <class name="ClickButtonsAndEnteredFieldsTest">
+
+            </class>
+        </classes>
+    </test>
+    <test name="DragAndDropTest">
+
+    </test>
+    <test name="LoginFormTest ">
+
+    </test>
+    <test name="FileUploadTest">
+
+    </test>
+    <test name="PopUpWindowsTest ">
+
+    </test>
+    <test name="StatusCodesTest">
+
+    </test>
+    <test name="SimpleFileDownloadTest">
+
+    </test>
+</suite> <!-- Suite -->
