@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-
+import static org.testng.Assert.fail;
 
 
 public class Tests_on_Selenium_Test_Example_Page {
@@ -48,6 +48,7 @@ public class Tests_on_Selenium_Test_Example_Page {
         } catch (NoSuchElementException e){
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+ClickButtonsAndEnteredFieldsTest.class+ " Failed!");
+            fail();
         } finally {
             logger.info("ClickButtonsAndEnteredFields Test End");
         }
@@ -63,6 +64,7 @@ public class Tests_on_Selenium_Test_Example_Page {
         } catch (NoSuchElementException e){
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+DragAndDropTest.class+ " Failed!");
+            fail();
         }finally {
             logger.info("DragAndDrop Test End");
         }
@@ -78,6 +80,7 @@ public class Tests_on_Selenium_Test_Example_Page {
         }catch (NoSuchElementException e){
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+LoginFormTest.class+ " Failed!");
+            fail();
         } finally {
             logger.info("LoginForm Test End");
         }
@@ -92,6 +95,7 @@ public class Tests_on_Selenium_Test_Example_Page {
         } catch (NoSuchElementException e){
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+FileUploadTest.class+ " Failed!");
+            fail();
         } finally {
             logger.info("FileUpload Test End");
         }
@@ -106,9 +110,11 @@ public class Tests_on_Selenium_Test_Example_Page {
         } catch (NoSuchElementException e){
             logger.error("WebElement not found! \n"+ e.getMessage());
             logger.info("Test "+PopUpWindowsTest.class+ " Failed!");
+            fail();
         } catch (TimeoutException e){
             logger.error("WebElement Timeout \n"+ e.getMessage());
             logger.info("Test "+PopUpWindowsTest.class+ " Failed!");
+            fail();
         }finally {
             logger.info("FileUpload Test End");
         }
