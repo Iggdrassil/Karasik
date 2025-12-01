@@ -1,4 +1,0 @@
-HTTP OK: 200 
-HTTP Moved Permanently: 301 
-HTTP Not Found: 404 
-HTTP Internal Server Error: 500 
